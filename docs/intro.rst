@@ -21,9 +21,18 @@ Network Topology
 
 The following components will be built in your lab environment:
 
+FOR AWS:
+
 - 1-2 x F5-BIG VE WAF (v12.1.2) - Auto Scale WAF
 - 2 x F5 BIG-IP VE (v13.0) - Active/Standby cross-AZ deployment
 - 2 x Linux Webserver (Amazon Linux AMI)
+
+FOR Azure:
+
+- 1-2 x F5-BIG VE WAF (v12.1.2) - Auto Scale WAF
+- 2 x F5 BIG-IP VE (v13.0) - Active/Standby
+- 2 x IIS Webservers (Microsoft IIS Image)
+
 
 Automation Tools
 ~~~~~~~~~~~~~~~~
@@ -61,13 +70,29 @@ F5 Provides Supported Cloud Formation Templates that customers can leverage in t
 #. Auto Scale WAF
 #. Active/Standby Pair Across two AWS Availability Zones (AZ)
 
+
+Azure Azure Resource Manager Templates
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Azure Azure Resource Manager Templates are used to deploy F5 BIG-IP resources.  In addition to deploying the F5 BIG-IP VE, the ARM template also manages  Network Interfaces , Security Groups,  Instance Roles, and other cloud native services.
+
+F5 Provides Azure Azure Resource Manager Templates that customers can leverage in their Azure environments.  The lab will deploy two of these solutions.
+
+#. Auto Scale WAF
+#. Active/Standby Pair Across two Azure Availability Zones (AZ)
+
+
+
 F5 Super NetOps Container
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To simplify the installation of these Automation Tools (Terraform/CFT) we will use the F5 Super NetOps Container to provide a consistent environment for running the lab.
+To simplify the installation of these Automation Tools (Terraform/CFT) we will use the F5 Super NetOps Container to provide a consistent environment for running the labs.
 
 Connecting to the Lab Environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Why do we use Ravello Portal?  We want a simple single jump point to do our labs, and having a windows JumpBox allows us to control that environment so it is identical for every student.
+Yes you can run these docker images directly on your computer and skip our Ravello Jumpbox starting point, but we find some students have locked down workstations and might struggle to get docker installed, for this reason we use the Ravello RDP Windows Jumpbox to make this lab uniform for all students.
 
 Your instructor will provide directions on how to connect to the Ravello Portal.
 
